@@ -1,0 +1,107 @@
+%------------------------------------------------------------------------------
+% paper.tex
+%------------------------------------------------------------------------------
+
+\input{header.tex}
+
+\begin{document}
+
+% Add Figure, Table prefixes to references
+% http://tex.stackexchange.com/a/6063/6784
+\let\ref\autoref
+
+\pagenumbering{arabic}
+
+\title{Title}
+
+% Title must be 150 characters or less
+\begin{center}
+{\Large
+\textbf{Title}
+}
+% Insert Author names, affiliations and corresponding author email.
+\\[.5cm]
+Cameron Smith$^{1}$,
+Raymond S. Puzio$^{1}$,
+Aviv Bergman$^{1,2,3,4,*}$,
+\\[.5cm]
+$^1$Department of Systems and Computational Biology,\\
+$^2$Dominick P. Purpura Department of Neuroscience,\\
+$^3$Department of Pathology, Albert Einstein College of Medicine,\\
+1301 Morris Park Ave, Bronx, NY 10461, USA\\
+$^4$Santa Fe Institute, 1399 Hyde Park Road, Santa Fe, NM 87501, USA
+\\
+$*$to whom correspondence should be addressed: aviv@einstein.yu.edu\\[.5cm]
+% $\ast$To whom correspondence should be addressed; E-mail: aviv@einstein.yu.edu.
+\end{center}
+
+
+\begin{bibunit}[naturemag]
+
+{\begin{quote} \bf
+\input{tex/abstract}
+\end{quote}}
+% {\bf
+% \input{tex/abstract}
+% }
+
+% \section{Todo}
+% \listoftodos
+% \tableofcontents
+
+\section{Introduction}
+\input{tex/introduction}
+
+\section{Results}
+\input{tex/results}
+
+\section{Discussion}
+\input{tex/discussion}
+
+\section{Acknowlegements}
+\input{tex/acknowledgements}
+% \pagebreak
+{\footnotesize
+% \bibliographystyle{naturemag}
+% \bibliography{bib/books,bib/papers}
+\putbib[bib/books,bib/papers]
+}
+
+% \end{multicols}
+
+\pagebreak
+\FloatBarrier
+\section{Figure Legends}
+\input{tex/figures}
+\end{bibunit}
+
+\pagebreak
+\FloatBarrier
+
+\begin{bibunit}[naturemag]
+
+\beginsupplement
+\setcounter{secnumdepth}{4}
+\section{Supplementary Material}
+
+\input{tex/supplement}
+
+{\footnotesize
+% \bibliographystyle{naturemag}
+% \bibliography{bib/books,bib/papers}
+\putbib[bib/books,bib/papers]
+}
+\pagebreak
+
+\input{tex/figuressupp}
+\pagebreak
+
+% \section{Tables}
+% \todo{Example todo}
+\input{tex/table}
+\end{bibunit}
+\end{document}
+
+%------------------------------------------------------------------------------
+% End of paper.tex
+%------------------------------------------------------------------------------
