@@ -64,7 +64,7 @@ arxiv:
 	latexpand $(TOPTEX) > combined.tex
 	sed -i 's/\\makeatletter{}//g' combined.tex
 	cp $(TOPBBLFILE) combined.bbl
-	tar --transform='flags=r;s|combined.tex|paper.tex|' -cvzf arxiv`date +"%m%d%Y"`.tar.gz combined.tex combined.bbl $(FIGFILES)
+	tar --transform='flags=r;s|combined|paper|' -cvzf arxiv`date +"%m%d%Y"`.tar.gz combined.tex combined.bbl $(FIGFILES)
 
 $(BIBFILES):
 	copybib
