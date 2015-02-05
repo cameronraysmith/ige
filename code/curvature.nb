@@ -1,0 +1,173 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4998,        164]
+NotebookOptionsPosition[      4682,        149]
+NotebookOutlinePosition[      5019,        164]
+CellTagsIndexPosition[      4976,        161]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StreamPlot", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"9", 
+        RowBox[{"(", 
+         RowBox[{"x", "-", "3"}], ")"}]}], "-", 
+       RowBox[{"2", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "-", "3"}], ")"}], "^", "3"}]}], "+", 
+       RowBox[{"9", 
+        RowBox[{"(", 
+         RowBox[{"y", "-", "3"}], ")"}]}], "-", 
+       RowBox[{"2", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"y", "-", "3"}], ")"}], "^", "3"}]}]}], ",", "\n", 
+      RowBox[{"1", "-", 
+       RowBox[{"11", 
+        RowBox[{"(", 
+         RowBox[{"x", "-", "3"}], ")"}]}], "+", 
+       RowBox[{"2", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "-", "3"}], ")"}], "^", "3"}]}], "+", 
+       RowBox[{"11", 
+        RowBox[{"(", 
+         RowBox[{"y", "-", "3"}], ")"}]}], "-", 
+       RowBox[{"2", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"y", "-", "3"}], ")"}], "^", "3"}]}]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "6"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"y", ",", "0", ",", "6"}], "}"}], ",", 
+    RowBox[{"StreamColorFunction", "\[Rule]", "\"\<RedBlueTones\>\""}]}], 
+   "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.632083744043188*^9, 3.632083744958391*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"potFunc", "[", 
+    RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "5"}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", 
+       RowBox[{"y", "^", "2"}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"1", "/", "2"}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"x", "^", "4"}], "+", 
+       RowBox[{"y", "^", "4"}]}], ")"}]}], "+", 
+    RowBox[{"x", "*", "y"}], "+", "x"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   RowBox[{"potFunc", "[", 
+    RowBox[{"x", ",", "y"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"LpF", "=", 
+  RowBox[{"Laplacian", "[", 
+   RowBox[{
+    RowBox[{"potFunc", "[", 
+     RowBox[{"x", ",", "y"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Plot3D", "[", 
+   RowBox[{"LpF", ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"y", ",", 
+      RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.632083657523554*^9, 3.6320836861447887`*^9}, {
+  3.6320838719165783`*^9, 3.6320838871327543`*^9}, {3.632083941012093*^9, 
+  3.632083971393436*^9}, {3.632084110723022*^9, 3.63208411672335*^9}, {
+  3.632084183418498*^9, 3.6320842721379232`*^9}, {3.6320843098141623`*^9, 
+  3.632084384739778*^9}, {3.6320845254022293`*^9, 3.632084529962309*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"GpF", "=", 
+  RowBox[{"Grad", "[", 
+   RowBox[{
+    RowBox[{"potFunc", "[", 
+     RowBox[{"x", ",", "y"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"dh", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"GpF", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "*", "dx"}], " ", "+", " ", 
+   RowBox[{
+    RowBox[{"GpF", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], "*", "dy"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Collect", "[", 
+  RowBox[{
+   RowBox[{"Expand", "[", 
+    RowBox[{
+     SuperscriptBox["dx", "2"], "+", 
+     SuperscriptBox["dy", "2"], "+", 
+     SuperscriptBox["dh", "2"]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SuperscriptBox["dx", "2"], ",", 
+     RowBox[{"dx", "*", "dy"}], ",", 
+     SuperscriptBox["dy", "2"]}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.632106972339615*^9, 3.63210697628353*^9}, {
+  3.632107032501936*^9, 3.6321071986757727`*^9}}]
+},
+WindowSize->{960, 1028},
+WindowMargins->{{Automatic, 753}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1379, 43, 99, "Input"],
+Cell[1939, 65, 1733, 50, 143, "Input"],
+Cell[3675, 117, 1003, 30, 102, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
