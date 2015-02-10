@@ -1,0 +1,247 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      8429,        238]
+NotebookOptionsPosition[      7973,        220]
+NotebookOutlinePosition[      8376,        236]
+CellTagsIndexPosition[      8333,        233]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["This is", "Input"]], "Text",
+ CellChangeTimes->{{3.632518192053131*^9, 3.6325182244884577`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"expPar", "[", "g_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Exp", "[", "g", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Exp", "[", "g", "]"}], "+", 
+      RowBox[{"Exp", "[", 
+       RowBox[{"-", "g"}], "]"}]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lnPar", "[", "p_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"1", "/", "2"}], "*", 
+    RowBox[{"Log", "[", 
+     FractionBox["p", 
+      RowBox[{"1", "-", "p"}]], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"binDist", "[", 
+    RowBox[{"n_", ",", "k_", ",", "p_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Binomial", "[", 
+     RowBox[{"n", ",", "k"}], "]"}], "*", 
+    SuperscriptBox["p", "k"], "*", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"1", "-", "p"}], ")"}], 
+     RowBox[{"n", "-", "k"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"binDist", "[", 
+   RowBox[{"n", ",", "k", ",", 
+    FractionBox[
+     RowBox[{"Exp", "[", "g", "]"}], 
+     RowBox[{
+      RowBox[{"Exp", "[", "g", "]"}], "+", 
+      RowBox[{"Exp", "[", 
+       RowBox[{"-", "g"}], "]"}]}]]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"p", "==", 
+     RowBox[{"expPar", "[", "g", "]"}]}], "&&", 
+    RowBox[{"0", "\[LessEqual]", "  ", "p", "\[LessEqual]", " ", "1"}]}], ",", 
+   RowBox[{"{", "g", "}"}], ",", "Reals"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"lnPar", "[", "p", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.632510854788188*^9, 3.632510866555085*^9}, {
+  3.6325110300458813`*^9, 3.6325110307242203`*^9}, {3.6325124536217537`*^9, 
+  3.632512531309498*^9}, {3.632513080518949*^9, 3.632513082626369*^9}, {
+  3.6325170270744047`*^9, 3.632517055928617*^9}, {3.632517425404396*^9, 
+  3.63251742618513*^9}, {3.632517517644517*^9, 3.632517562603086*^9}, {
+  3.632518261276799*^9, 3.6325183827801447`*^9}, {3.6325184165151253`*^9, 
+  3.632518432037661*^9}, {3.632518474096596*^9, 3.6325184791747503`*^9}, {
+  3.632518524664744*^9, 3.63251852668075*^9}, {3.632519525277582*^9, 
+  3.632519545861929*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"k", "/", "36"}], ",", 
+        RowBox[{"PDF", "[", 
+         RowBox[{
+          RowBox[{"BinomialDistribution", "[", 
+           RowBox[{"40", ",", "0.1"}], "]"}], ",", "k"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", "36"}], "}"}]}], "]"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+    RowBox[{"PlotMarkers", "\[Rule]", "Automatic"}]}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.632511214315242*^9, 3.632511216323135*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"k", "/", "36"}], ",", 
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"40", ",", "p"}], "]"}], ",", "k"}], "]"}]}], "}"}], ",", 
+       
+       RowBox[{"{", 
+        RowBox[{"k", ",", "36"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", 
+       RowBox[{"{", 
+        RowBox[{"0.1", ",", "0.5", ",", "0.7"}], "}"}]}], "}"}]}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+   RowBox[{"PlotMarkers", "\[Rule]", "Automatic"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.632509789477453*^9, 3.6325098394273577`*^9, {3.6325099377589407`*^9, 
+   3.632509937918631*^9}, {3.632510074119422*^9, 3.632510074447296*^9}, {
+   3.632510653500476*^9, 3.632510718297604*^9}, {3.6325107556271877`*^9, 
+   3.632510762513356*^9}, {3.632510814868504*^9, 3.63251087368749*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"maxN", " ", "=", " ", "200"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxK", " ", "=", " ", "200"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"lnPar", "[", 
+          RowBox[{"k", "/", "maxK"}], "]"}], ",", 
+         RowBox[{
+          FractionBox["2", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Exp", "[", "g", "]"}], "+", 
+              RowBox[{"Exp", "[", 
+               RowBox[{"-", "g"}], "]"}]}], ")"}], "2"]], 
+          RowBox[{"binDist", "[", 
+           RowBox[{"maxN", ",", "k", ",", 
+            RowBox[{"expPar", "[", "g", "]"}]}], "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", 
+         RowBox[{"maxK", "-", "1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.7"}], ",", 
+         RowBox[{"-", "0.5"}], ",", "0", ",", "0.5", ",", "0.7"}], "}"}]}], 
+      "}"}]}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+   RowBox[{"PlotMarkers", "\[Rule]", "Automatic"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"k", "/", "maxK"}], ",", 
+         RowBox[{
+          FractionBox["2", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Exp", "[", "g", "]"}], "+", 
+              RowBox[{"Exp", "[", 
+               RowBox[{"-", "g"}], "]"}]}], ")"}], "2"]], 
+          RowBox[{"binDist", "[", 
+           RowBox[{"maxN", ",", "k", ",", 
+            RowBox[{"expPar", "[", "g", "]"}]}], "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", 
+         RowBox[{"maxK", "-", "1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.7"}], ",", 
+         RowBox[{"-", "0.5"}], ",", "0", ",", "0.5", ",", "0.7"}], "}"}]}], 
+      "}"}]}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+   RowBox[{"PlotMarkers", "\[Rule]", "Automatic"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6325108871854677`*^9, 3.63251089870549*^9}, {
+  3.632510930225877*^9, 3.6325109367290497`*^9}, {3.63251103557935*^9, 
+  3.632511062591*^9}, {3.632511139273238*^9, 3.632511139596527*^9}, {
+  3.6325123711736193`*^9, 3.632512371768318*^9}, {3.632512563014348*^9, 
+  3.63251258046875*^9}, {3.6325163445202*^9, 3.63251637711747*^9}, {
+  3.632517068552915*^9, 3.6325170718643017`*^9}, {3.6325171294643717`*^9, 
+  3.6325171331227903`*^9}, {3.632517203139946*^9, 3.632517248154439*^9}, {
+  3.632519392251452*^9, 3.6325194199760523`*^9}, {3.632519569041705*^9, 
+  3.632519572896604*^9}, {3.6325196170522537`*^9, 3.6325196678987226`*^9}, {
+  3.632519707095052*^9, 3.6325197526398563`*^9}, {3.632519789978648*^9, 
+  3.6325198256005783`*^9}, {3.632519873422414*^9, 3.632519882624362*^9}, {
+  3.632519922246731*^9, 3.632519928629716*^9}, {3.632519961772587*^9, 
+  3.6325199756723557`*^9}}]
+},
+WindowSize->{683, 716},
+WindowMargins->{{Automatic, -10}, {Automatic, -10}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->FrontEnd`FileName[{"Utility"}, "Notepad.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 120, 1, 29, "Text"],
+Cell[680, 23, 2250, 60, 186, "Input"],
+Cell[2933, 85, 647, 18, 69, "Input"],
+Cell[3583, 105, 1054, 27, 69, "Input"],
+Cell[4640, 134, 3329, 84, 458, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
