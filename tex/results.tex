@@ -1,2 +1,69 @@
 %!TEX root = ../paper.tex
-Results
+
+The definition of Fisher's information metric is
+\begin{equation}\label{eq:fisherinformationmetric}
+    g_{\theta \theta} = \sum_{i} p_i \frac{\partial \log p_i}{\partial \theta} \frac{\partial \log p_i}{\partial \theta}.
+\end{equation}
+The binomial distribution is
+\begin{equation}\label{eq:binomialdist}
+    \begin{aligned}
+        p(n) &= \binom{N}{n} \theta^n (1-\theta)^{N-n},\\
+        &\approx \frac{1}{\sqrt{2\pi N \theta(1-\theta)}} e^{-\frac{(n-\theta N)^2}{2 N \theta(1-\theta)}}
+    \end{aligned}
+\end{equation}
+For the binomial distribution of \ref{eq:binomialdist}, we have parameters $p_1 = \theta,\,p_2 = 1 - \theta$, and \ref{eq:fisherinformationmetric} takes the form
+\begin{equation}\label{eq:fimbinomial}
+    \begin{aligned}
+        g_{\theta \theta} &= \theta \left( \frac{\partial}{\partial \theta} \log \theta \right)^2 + (1 - \theta) \left( \frac{\partial}{\partial \theta} \log (1 - \theta) \right)^2,\\
+                          &= \frac{1}{\theta} + \frac{1}{1 - \theta},\\
+                          &= \frac{1}{\theta (1-\theta)}.
+     \end{aligned}
+ \end{equation}
+The arc length is then given in this case as
+\begin{equation}\label{eq:arclengthbinomial}
+    s = \int d \theta \sqrt{g_{\theta \theta}} = \int \frac{d\theta}{\sqrt{\theta(1-\theta)}}
+\end{equation}
+Introducing the frequencies $f_i = \frac{n_i}{N}$ we can write the standard deviation as
+\begin{equation}
+    \begin{aligned}
+        \sqrt{\langle f^2 \rangle - \langle f \rangle^2} &= \sqrt{\frac{1}{N^2} \left(\langle n^2 \rangle - \langle n \rangle^2 \right)}\\
+        &= \sqrt{\frac{\theta(1-\theta)}{N}}
+    \end{aligned}
+\end{equation}
+In general, an exponential family is one which can be parametrized such that
+\begin{equation}\label{eq:expfamily}
+    p(x,\theta) = e^{\sum_{i=1}^{r} \theta^i x^i - K(\theta)}
+\end{equation}
+For the case of a single binomial random variable $x \in \{0,1\}$ this should result in the form
+\begin{equation}
+    p(\theta)(x) = e^{\theta x - K(\theta)}.
+\end{equation}
+Substituting in possible values of the random variable and normalizing indicates that $K(\theta) = \log (1+e^{\theta})$ and thus we have
+\begin{equation}\label{eq:binexpfampars}
+    \begin{aligned}
+        p_0 &= \frac{1}{1+e^{\theta}},\\
+        p_1 &= \frac{e^{\theta}}{1+e^{\theta}}.
+    \end{aligned}
+\end{equation}
+Substituting these into \ref{eq:fisherinformationmetric} yields
+\begin{equation}\label{eq:fimbinomialexppars}
+    \begin{aligned}
+        g_{\theta \theta} &= \frac{1}{1+e^{\theta}} \left( \frac{\partial}{\partial \theta} \log \frac{1}{1+e^{\theta}} \right)^2 + \frac{e^{\theta}}{1+e^{\theta}} \left( \frac{\partial}{\partial \theta} \log \frac{e^{\theta}}{1+e^{\theta}} \right)^2,\\
+                          &= \frac{e^{\theta}}{(1+e^{\theta})^2}.
+     \end{aligned}
+ \end{equation}
+In these terms the analog of the arc length in \ref{eq:arclengthbinomial} is
+\begin{equation}\label{eq:arclengthbinomialexppar}
+    s = \int d \theta \sqrt{g_{\theta \theta}} = \int \frac{e^{\frac{1}{2} \theta} d\theta}{1+e^{\theta}}
+\end{equation}
+The metric \ref{eq:fimbinomialexppars} is invariant to fractional linear transformations of the form
+\begin{equation}
+    (\mu_i) \mapsto \left( \frac{e^{f_i}\mu_i}{\sum_i e^{f_i}\mu_i} \right).
+\end{equation}
+If we take $(\mu_0,\mu_1)$ equal to $(p_0,p_1)$ from \ref{eq:binexpfampars} this transformation results in
+\begin{equation}
+    \left(\frac{1}{1+e^{\theta}}, \frac{e^{\theta}}{1+e^{\theta}} \right)
+    \mapsto
+    \left(\frac{e^{f_0}}{e^{f_0}+e^{f_1+\theta}}, \frac{e^{\theta+f_1}}{e^{f_0}+e^{\theta+f_1}} \right)=\left(\frac{1}{1+e^{\theta - f_0 + f_1}}, \frac{e^{\theta - f_0 + f_1}}{1+e^{\theta - f_0 + f_1}} \right),
+\end{equation}
+which corresponds to a transformation of parameters $\theta \mapsto \theta-f_0+f_1$. This clearly corresponds to the identity when $f_0=f_1$.
