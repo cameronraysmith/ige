@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     13877,        379]
-NotebookOptionsPosition[     13260,        357]
-NotebookOutlinePosition[     13663,        373]
-CellTagsIndexPosition[     13620,        370]
+NotebookDataLength[     16058,        441]
+NotebookOptionsPosition[     15360,        417]
+NotebookOutlinePosition[     15762,        433]
+CellTagsIndexPosition[     15719,        430]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -98,6 +98,66 @@ Cell[BoxData[
   3.6326869246074257`*^9, 3.6326869274449043`*^9}, {3.632686991221467*^9, 
   3.6326870482208033`*^9}, {3.6326898188811626`*^9, 3.632689847116973*^9}, {
   3.632689941766954*^9, 3.632689942245902*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"arcL", "[", 
+   RowBox[{"lB_", ",", "uB_"}], "]"}], ":=", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"\[Theta]", "*", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", "\[Theta]"}], ")"}]}], ")"}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "2"}]], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", "lB", ",", "uB"}], "}"}]}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Exp", "[", 
+        RowBox[{"\[Theta]", "/", "2"}], "]"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         RowBox[{"Exp", "[", "\[Theta]", "]"}]}], ")"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", 
+        RowBox[{"thPar", "[", "uB", "]"}], ",", 
+        RowBox[{"thPar", "[", "lB", "]"}]}], "}"}]}], "]"}]}], 
+   "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"arcLstandard", "[", 
+   RowBox[{"lB_", ",", "uB_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"\[Theta]", "*", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Theta]"}], ")"}]}], ")"}], 
+     RowBox[{
+      RowBox[{"-", "1"}], "/", "2"}]], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Theta]", ",", "lB", ",", "uB"}], "}"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.632758163719761*^9, 3.632758297672153*^9}, {
+  3.6327583335135183`*^9, 3.63275839908911*^9}, {3.63275857128109*^9, 
+  3.6327586204278173`*^9}, {3.632758735807482*^9, 3.6327587807276993`*^9}, {
+  3.63275881195*^9, 3.632758923277185*^9}, {3.632759088116274*^9, 
+  3.6327591106104813`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"arcL", "[", 
+  RowBox[{"0.1", ",", "0.2"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"arcL", "[", 
+  RowBox[{"0.2", ",", "0.3"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6327589057251463`*^9, 3.632759010804747*^9}, {
+  3.6327591159652843`*^9, 3.632759118252719*^9}, {3.632763761940242*^9, 
+  3.632763762961748*^9}}],
 
 Cell[BoxData[
  RowBox[{"\n", 
@@ -355,8 +415,8 @@ Cell[BoxData[{
   3.632519922246731*^9, 3.632519928629716*^9}, {3.632519961772587*^9, 
   3.6325199756723557`*^9}}]
 },
-WindowSize->{683, 716},
-WindowMargins->{{Automatic, -10}, {Automatic, -10}},
+WindowSize->{740, 599},
+WindowMargins->{{324, Automatic}, {31, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->FrontEnd`FileName[{"Utility"}, "Notepad.nb", 
   CharacterEncoding -> "UTF-8"]
@@ -372,15 +432,17 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 2397, 63, 274, "Input"],
+Cell[557, 20, 2397, 63, 222, "Input"],
 Cell[2957, 85, 567, 14, 36, "Input"],
-Cell[3527, 101, 661, 21, 55, "Input"],
-Cell[4191, 124, 1650, 31, 69, "Input"],
-Cell[5844, 157, 120, 1, 29, "Text"],
-Cell[5967, 160, 2250, 60, 186, "Input"],
-Cell[8220, 222, 647, 18, 69, "Input"],
-Cell[8870, 242, 1054, 27, 69, "Input"],
-Cell[9927, 271, 3329, 84, 458, "Input"]
+Cell[3527, 101, 1755, 49, 125, "Input"],
+Cell[5285, 152, 339, 7, 50, "Input"],
+Cell[5627, 161, 661, 21, 55, "Input"],
+Cell[6291, 184, 1650, 31, 50, "Input"],
+Cell[7944, 217, 120, 1, 29, "Text"],
+Cell[8067, 220, 2250, 60, 186, "Input"],
+Cell[10320, 282, 647, 18, 69, "Input"],
+Cell[10970, 302, 1054, 27, 50, "Input"],
+Cell[12027, 331, 3329, 84, 394, "Input"]
 }
 ]
 *)
