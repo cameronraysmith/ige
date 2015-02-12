@@ -10,14 +10,151 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      8429,        238]
-NotebookOptionsPosition[      7973,        220]
-NotebookOutlinePosition[      8376,        236]
-CellTagsIndexPosition[      8333,        233]
+NotebookDataLength[     13877,        379]
+NotebookOptionsPosition[     13260,        357]
+NotebookOutlinePosition[     13663,        373]
+CellTagsIndexPosition[     13620,        370]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p0", "[", "\[Theta]_", "]"}], ":=", 
+  FractionBox["1", 
+   RowBox[{"1", "+", 
+    SuperscriptBox["\[ExponentialE]", "\[Theta]"]}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p1", "[", "\[Theta]_", "]"}], ":=", 
+  FractionBox[
+   SuperscriptBox["\[ExponentialE]", "\[Theta]"], 
+   RowBox[{"1", "+", 
+    SuperscriptBox["\[ExponentialE]", "\[Theta]"]}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"thPar", "[", "p_", "]"}], ":=", 
+  RowBox[{"Log", "[", 
+   FractionBox[
+    RowBox[{"1", "-", "p"}], "p"], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"expTrans", "[", 
+   RowBox[{"\[Theta]_", ",", "f0_", ",", "f1_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[ExponentialE]", "\[Theta]"]}]], ",", 
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", "\[Theta]"], 
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[ExponentialE]", "\[Theta]"]}]]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", "f0"], 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", "f0"], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[Theta]", "+", "f1"}]]}]], ",", 
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[Theta]", "+", "f1"}]], 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", "f0"], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[Theta]", "+", "f1"}]]}]]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[Theta]", "-", "f0", "+", "f1"}]]}]], ",", 
+      FractionBox[
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"\[Theta]", "-", "f0", "+", "f1"}]], 
+       RowBox[{"1", "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[Theta]", "-", "f0", "+", "f1"}]]}]]}], "}"}]}], 
+   "}"}]}]}], "Input",
+ CellChangeTimes->{{3.632686451687562*^9, 3.632686630082519*^9}, {
+  3.632686762341625*^9, 3.632686810781733*^9}, {3.632686844403611*^9, 
+  3.632686912545309*^9}, {3.6326873534307003`*^9, 3.6326874829050503`*^9}, {
+  3.632687574985298*^9, 3.632687578072472*^9}, {3.632687970741146*^9, 
+  3.632687987158095*^9}, {3.632688268487796*^9, 3.632688307685402*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"thPar", "[", "p", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "3"}]], ",", 
+     RowBox[{"1", "-", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "3"}]]}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.632686672271495*^9, 3.632686710986867*^9}, {
+  3.6326869246074257`*^9, 3.6326869274449043`*^9}, {3.632686991221467*^9, 
+  3.6326870482208033`*^9}, {3.6326898188811626`*^9, 3.632689847116973*^9}, {
+  3.632689941766954*^9, 3.632689942245902*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\n", 
+  RowBox[{"Plot3D", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"thPar", "[", "p", "]"}], "-", 
+     RowBox[{"thPar", "[", "q", "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"p", ",", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "3"}]], ",", 
+      RowBox[{"1", "-", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "3"}]]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"q", ",", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "3"}]], ",", 
+      RowBox[{"1", "-", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "3"}]]}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.632689948324236*^9, 3.632689952184278*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Map", "[", 
+  RowBox[{"thPar", ",", 
+   RowBox[{"Range", "[", 
+    RowBox[{"0.1", ",", "0.9", ",", "0.1"}], "]"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", 
+  RowBox[{"expTrans", "[", 
+   RowBox[{
+    RowBox[{"thPar", "[", "0.7", "]"}], ",", 
+    RowBox[{
+     RowBox[{"thPar", "[", "0.7", "]"}], "-", 
+     RowBox[{"thPar", "[", "0.6", "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"thPar", "[", "0.3", "]"}], "-", 
+     RowBox[{"thPar", "[", "0.6", "]"}]}]}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6326872310973043`*^9, 3.632687250181744*^9}, {
+   3.632687517671474*^9, 3.632687545361649*^9}, {3.63268759452328*^9, 
+   3.6326875960440083`*^9}, {3.632687648969207*^9, 3.632687667398056*^9}, {
+   3.6326877034984827`*^9, 3.632687714452238*^9}, {3.6326877649929953`*^9, 
+   3.632687772186771*^9}, {3.632688019693163*^9, 3.632688028273161*^9}, {
+   3.632688345606971*^9, 3.632688381926828*^9}, {3.632688464805695*^9, 
+   3.632688475910241*^9}, {3.632688512858053*^9, 3.632688519496591*^9}, {
+   3.632688677165443*^9, 3.63268868729643*^9}, {3.632688734085093*^9, 
+   3.632688799431295*^9}, {3.632688833222816*^9, 3.6326888411964207`*^9}, {
+   3.632688955530707*^9, 3.6326889600558*^9}, {3.632689108188575*^9, 
+   3.632689113847797*^9}, {3.6326891820875053`*^9, 3.6326891877601852`*^9}, 
+   3.632689249581213*^9, {3.632689284689472*^9, 3.632689316676002*^9}, {
+   3.632689358396064*^9, 3.6326893613083897`*^9}, {3.632689394092408*^9, 
+   3.6326894420761223`*^9}, {3.632689507060302*^9, 3.632689519706553*^9}, {
+   3.632689583296947*^9, 3.632689655552807*^9}, {3.6326913823933153`*^9, 
+   3.632691383535798*^9}}],
+
 Cell[TextData[StyleBox["This is", "Input"]], "Text",
  CellChangeTimes->{{3.632518192053131*^9, 3.6325182244884577`*^9}}],
 
@@ -235,11 +372,15 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 120, 1, 29, "Text"],
-Cell[680, 23, 2250, 60, 186, "Input"],
-Cell[2933, 85, 647, 18, 69, "Input"],
-Cell[3583, 105, 1054, 27, 69, "Input"],
-Cell[4640, 134, 3329, 84, 458, "Input"]
+Cell[557, 20, 2397, 63, 274, "Input"],
+Cell[2957, 85, 567, 14, 36, "Input"],
+Cell[3527, 101, 661, 21, 55, "Input"],
+Cell[4191, 124, 1650, 31, 69, "Input"],
+Cell[5844, 157, 120, 1, 29, "Text"],
+Cell[5967, 160, 2250, 60, 186, "Input"],
+Cell[8220, 222, 647, 18, 69, "Input"],
+Cell[8870, 242, 1054, 27, 69, "Input"],
+Cell[9927, 271, 3329, 84, 458, "Input"]
 }
 ]
 *)
